@@ -1,0 +1,56 @@
+/* Scroll animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 60s linear infinite;
+}
+
+.scroll-track:hover {
+  animation-play-state: paused;
+}
+
+/* Edge fade */
+.logo-fade-container::before,
+.logo-fade-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 5%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.logo-fade-container::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+}
+
+.logo-fade-container::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 0%, transparent 100%);
+}
+
+/* Shine effect for gradient text */
+@keyframes shine {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+.shine-text {
+  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.45) 50%, transparent 65%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 250% 100%;
+  animation: shine 5s ease-in-out infinite;
+}
