@@ -1,11 +1,11 @@
 "use client";
-import ButtonGradient from "../Buttons/ButtonGradient";
-import ButtonVideo from "../Buttons/ButtonVideo";
+import ButtonGradient from "../../Buttons/ButtonGradient";
+import ButtonVideo from "../../Buttons/ButtonVideo";
 import HeroCounters from "./HeroCounters";
 import "./Hero.css";
 
 const HeroContent = () => (
-  <div className="relative z-10 flex-1 min-w-0 pt-50 px-50 text-white text-center">
+  <div className="relative z-10 flex-1 min-w-0 pt-50 px-70 text-white text-center">
     <p className="text-base pb-2 text-white/80">
       GRABACIÓN DE INTERRACCIONES
     </p>
@@ -25,8 +25,11 @@ const HeroContent = () => (
         >
           IA
         </span>
-        <span className="relative font-semibold bg-gradient-to-b from-[#d73032] to-[#0f53ff] bg-clip-text text-transparent">
-          IA
+        <span className="relative font-semibold
+                         bg-gradient-to-b from-[#d73032] to-[#0f53ff]
+                         bg-clip-text text-transparent"
+                         >
+                          IA
         </span>
         <span aria-hidden className="absolute inset-0 shine-text">
           IA
@@ -36,8 +39,11 @@ const HeroContent = () => (
 
     <div className="flex flex-col items-center justify-center gap-15">
       <div className="flex items-center justify-center gap-4 flex-nowrap">
-        <ButtonVideo href="#video" />
-        <ButtonGradient href="/contacto">Solicitar demo</ButtonGradient>
+        <ButtonVideo href="#video" label="Descubre en acción" />
+        <ButtonGradient
+          href="/contacto">
+          Solicitar demo
+        </ButtonGradient>
       </div>
 
       <HeroCounters />

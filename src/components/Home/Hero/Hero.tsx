@@ -1,7 +1,5 @@
 "use client";
 import HeroContent from "./HeroContent";
-import HeroCounters from "./HeroCounters";
-import NewsWidget from "./NewsWidget";
 import { FiTrendingUp } from "react-icons/fi";
 import Link from "next/link";
 

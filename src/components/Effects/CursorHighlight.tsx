@@ -29,7 +29,7 @@ export const CursorHighlight = ({
     <div ref={ref} className="relative overflow-hidden rounded-lg">
       {/* Glow behind content */}
       <div
-        className="absolute inset-0 pointer-events-none rounded-lg z-0"
+        className="absolute inset-0 pointer-events-none rounded-lg z-0 transition-all duration-300 ease-out"
         style={{
           background: `radial-gradient(circle at ${mouse.x}px ${mouse.y}px, ${color} 0%, transparent ${radius}%)`,
         }}

@@ -17,10 +17,10 @@ const ButtonWhite = ({
 }: ButtonWhiteProps) => (
   <Link
     href={href}
-    className={`inline-flex items-center gap-2 px-4 py-2 rounded font-light transition-all cursor-pointer ${
+    className={`inline-flex items-center gap-2 px-4 py-2 font-light transition-all cursor-pointer ${
       inverted
         ? "border border-white text-white hover:bg-white hover:text-black"
-        : "border border-black text-black hover:bg-black hover:text-white"
+        : "border border-black text-black hover:bg-[#d73032] hover:border-[#d73032] hover:text-white"
     } ${className}`}
   >
     {children}

@@ -12,7 +12,7 @@ module.exports = {
         foreground: "#171717"
       },
       fontFamily: {
-        sans: ['Inter', 'Arial', 'Helvetica', 'sans-serif'],
+        sans: ['Urbanist', 'Arial', 'Helvetica', 'sans-serif'],
       }
     },
   },

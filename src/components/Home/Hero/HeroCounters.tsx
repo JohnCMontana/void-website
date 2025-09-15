@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { CursorHighlight } from "../Effects/CursorHighlight";
+import { CursorHighlight } from "../../Effects/CursorHighlight";
 
 interface CounterProps {
   end: number;
