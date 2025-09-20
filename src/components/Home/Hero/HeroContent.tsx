@@ -5,7 +5,7 @@ import HeroCounters from "./HeroCounters";
 import "./Hero.css";
 
 const HeroContent = () => (
-  <div className="relative z-10 flex-1 min-w-0 pt-50 px-70 text-white text-center">
+  <div className="relative z-10 flex-1 min-w-0 py-20 px-70 text-white text-center">
     <p className="text-base pb-2 text-white/80">
       GRABACIÓN DE INTERRACCIONES
     </p>
@@ -37,7 +37,7 @@ const HeroContent = () => (
       </span>
     </h1>
 
-    <div className="flex flex-col items-center justify-center gap-15">
+    <div className="flex flex-col items-center justify-center gap-6 mb-10">
       <div className="flex items-center justify-center gap-4 flex-nowrap">
         <ButtonVideo href="#video" label="Descubre en acción" />
         <ButtonGradient
@@ -47,6 +47,7 @@ const HeroContent = () => (
       </div>
 
       <HeroCounters />
+
     </div>
   </div>
 );

@@ -5,6 +5,7 @@ import Features from "@/components/Home/Features/Features";
 import clients from "@/data/clients";
 import integrators from "@/data/integrators";
 import AboutUs from "@/components/Home/AboutUs/AboutUs";
+import HomeFAQ from "@/components/Home/HomeFAQ/HomeFAQ";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Features />
       <LogoCarousel clients={integrators} title="Integradores que impulsan nuestras soluciones" />
       <AboutUs />
+      <HomeFAQ />
     </main>
   );
 }

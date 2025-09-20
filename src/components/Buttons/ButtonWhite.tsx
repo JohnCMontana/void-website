@@ -20,10 +20,10 @@ const ButtonWhite = ({
     className={`inline-flex items-center gap-2 px-4 py-2 font-light transition-all cursor-pointer ${
       inverted
         ? "border border-white text-white hover:bg-white hover:text-black"
-        : "border border-black text-black hover:bg-[#d73032] hover:border-[#d73032] hover:text-white"
+        : "border border-red-600 bg-[#d73032] text-white hover:bg-[#a42a2b] hover:border-[#d73032] hover:text-white"
     } ${className}`}
   >
-    {children}
+    {children} 
   </Link>
 );
 
