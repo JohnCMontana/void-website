@@ -1,40 +1,54 @@
-import Link from 'next/link';
-import React, { ReactNode } from 'react';
+import Link from "next/link";
+import React, { ReactNode } from "react";
 
 interface Card1Props {
   title: string;
   description: string;
   href: string;
   icon?: ReactNode;
-  bgImage?: string; // optional background image
+  bgImage?: string;
+  className?: string;
 }
 
-const Card1: React.FC<Card1Props> = ({ title, description, href, bgImage }) => (
+const Card1: React.FC<Card1Props> = ({
+  title,
+  description,
+  href,
+  bgImage,
+  className,
+}) => (
   <div
-    className="relative group flex flex-col items-start
-               p-6 border border-gray-200
-               transition-all duration-300
-               w-full max-w-sm
-               bg-cover bg-center overflow-hidden
-               transform hover:scale-105"
+    className={`relative group flex flex-col justify-end
+               overflow-hidden
+               bg-gray-900/80 text-white
+               shadow-lg hover:shadow-2xl
+               transition-all duration-500
+               hover:-translate-y-1 ${className || ""}`}
     style={{
       backgroundImage: bgImage ? `url(${bgImage})` : undefined,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     }}
   >
-    {/* Dark-red overlay */}
-    <div className="absolute inset-0 bg-black/70
-                    group-hover:bg-[#8b0000]/50
-                    transition-colors duration-250
-                    pointer-events-none"></div>
+    {/* Base overlay for readability */}
+    <div className="absolute inset-0 bg-black/40"></div>
+
+    {/* Gradient overlay */}
+    <div
+      className="absolute inset-0 bg-black/60
+                 transition-all duration-500"
+    ></div>
 
     {/* Content */}
-
-    <div className="relative z-10 mt-20">
-      <h3 className="text-lg font-semibold mb-2 text-white transition-colors duration-500">{title}</h3>
-      <p className="text-white text-sm mb-4 group-hover:text-white transition-colors duration-500">{description}</p>
+    <div className="relative z-10 px-8 py-15">
+      <h3 className="text-xl font-bold mb-3">{title}</h3>
+      <p className="text-sm text-gray-200 mb-5 leading-relaxed">
+        {description}
+      </p>
       <Link
         href={href}
-        className="text-white font-semibold hover:underline text-sm"
+        className="inline-block text-sm font-semibold text-white/90
+                   group-hover:text-white underline-offset-4 hover:underline"
       >
         Más info →
       </Link>

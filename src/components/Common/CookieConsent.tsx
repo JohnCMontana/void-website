@@ -24,7 +24,7 @@ const CookieConsent = () => {
     <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-end">
       {/* Bubble */}
       <div
-        className="bg-white/60 p-4 rounded-xl shadow-lg flex flex-col gap-2 relative max-w-xs"
+        className="bg-white/40 p-4 rounded-xl shadow-lg flex flex-col gap-2 relative max-w-xs"
         style={{ cursor: "pointer" }}
         onClick={() => setExpanded(!expanded)}
       >
@@ -36,7 +36,7 @@ const CookieConsent = () => {
         <div className="font-normal text-sm text-black/70">Consentimiento de Cookies</div>
 
         {expanded && (
-          <div className="text-sm mt-2">
+          <div className="text-sm mt-2 text-black/70">
             Este sitio web utiliza cookies que permiten el funcionamiento
             y la prestación de los servicios en el mismo.
             Puede obtener la información sobre nuestra{" "}
@@ -48,7 +48,7 @@ const CookieConsent = () => {
             <div className="flex justify-end mt-2">
               <button
                 onClick={handleAccept}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full"
+                className="bg-red-500 hover:bg-red-400 text-white px-4 py-2"
               >
                 Aceptar
               </button>

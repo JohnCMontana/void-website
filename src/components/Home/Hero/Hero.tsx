@@ -4,10 +4,11 @@ import { FiTrendingUp } from "react-icons/fi";
 import Link from "next/link";
 
 const Hero = () => (
-  <section id="hero" className="relative w-full min-h-screen overflow-hidden">
+  <section id="hero" className="relative w-full overflow-hidden pt-10 pb-2">
     {/* Video de fondo */}
     <video
-      className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+      className="absolute inset-0 w-full object-cover pointer-events-none z-0"
+      style={{ height: "100%" }}
       src="/videos/hero-bg-video.mp4"
       autoPlay
       muted
@@ -17,7 +18,7 @@ const Hero = () => (
     />
 
     {/* Contenido principal */}
-    <div className="relative z-10 flex flex-col items-center justify-center gap-6 min-h-screen max-w-7xl mx-auto px-6 py-16">
+    <div className="relative z-10 flex flex-col items-center justify-center gap-6 max-w-7xl mx-auto px-6 py-6">
       <HeroContent />
     </div>
 

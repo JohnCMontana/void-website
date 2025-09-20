@@ -66,7 +66,7 @@ const Footer = () => {
             </ul>
             <div className="mt-4">
               <Link href="/contacto" className="inline-block rounded-md bg-white/10 px-4 py-2 text-white text-sm font-medium hover:bg-white/20 transition-colors">
-                Contacto / Solicitar demo
+                Contáctanos
               </Link>
             </div>
           </div>
