@@ -24,7 +24,7 @@ const CookieConsent = () => {
     <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-end">
       {/* Bubble */}
       <div
-        className="bg-white/40 p-4 rounded-xl shadow-lg flex flex-col gap-2 relative max-w-xs"
+        className="bg-white/60 p-4 rounded-xl shadow-lg flex flex-col gap-2 relative max-w-xs"
         style={{ cursor: "pointer" }}
         onClick={() => setExpanded(!expanded)}
       >
@@ -33,7 +33,7 @@ const CookieConsent = () => {
           <FaCookieBite className="w-6 h-6 p-1 text-black" />
         </div>
 
-        <div className="font-normal text-sm text-white/70">Consentimiento de Cookies</div>
+        <div className="font-normal text-sm text-black/70">Consentimiento de Cookies</div>
 
         {expanded && (
           <div className="text-sm mt-2">
