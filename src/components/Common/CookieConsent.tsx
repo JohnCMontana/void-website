@@ -44,7 +44,9 @@ const CookieConsent = () => {
               Política de Cookies
             </a>.
             <br />
-            Sin embargo, contiene enlaces a sitios web de terceros con Políticas de Cookies ajenas a esta web que usted podrá decidir si acepta o no cuando acceda a ellos.
+              Sin embargo, contiene enlaces a sitios web de terceros
+              con Políticas de Cookies ajenas a esta web que usted
+              podrá decidir si acepta o no cuando acceda a ellos.
             <div className="flex justify-end mt-2">
               <button
                 onClick={handleAccept}

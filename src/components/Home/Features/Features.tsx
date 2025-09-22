@@ -1,65 +1,175 @@
 "use client";
-
-import { FiMic, FiCpu, FiBarChart2, FiLock } from "react-icons/fi";
+import { useEffect, useRef, useState } from "react";
+import ButtonWhite from "../../Buttons/ButtonWhite";
 
 const features = [
-	{
-		title: "Grabación Inteligente",
-		description:
-			"Captura y almacena comunicaciones críticas con máxima seguridad y flexibilidad.",
-		icon: <FiMic size={32} className="text-[#d73032]" />,
-	},
-	{
-		title: "Análisis con IA",
-		description:
-			"Transcribe, resume y detecta patrones en tiempo real para decisiones ágiles.",
-		icon: <FiCpu size={32} className="text-[#d73032]" />,
-	},
-	{
-		title: "Dashboards & KPIs",
-		description:
-			"Visualiza métricas clave y exporta datos a BI para mejorar la operación.",
-		icon: <FiBarChart2 size={32} className="text-[#d73032]" />,
-	},
-	{
-		title: "Privacidad & Control",
-		description:
-			"Procesamiento local, permisos granulares y cumplimiento normativo garantizado.",
-		icon: <FiLock size={32} className="text-[#d73032]" />,
-	},
+  {
+    title: "Grabación Inteligente",
+    description: "Captura y almacena comunicaciones críticas con máxima seguridad y flexibilidad.",
+    bgImage: "/images/features/grabacion-multimodal-aurall.png",
+  },
+  {
+    title: "Análisis con IA",
+    description: "Transcribe, resume y detecta patrones en tiempo real para decisiones ágiles.",
+    bgImage: "/images/features/gestion-inteligente-con-ia-aurall.png",
+  },
+  {
+    title: "Dashboards & KPIs",
+    description: "Visualiza métricas clave y exporta datos a BI para mejorar la operación.",
+    bgImage: "/images/features/despliegue-flexible-aurall.png",
+  },
+  {
+    title: "Privacidad & Control",
+    description: "Procesamiento local, permisos granulares y cumplimiento normativo garantizado.",
+    bgImage: "/images/features/alta-seguridad-aurall.png",
+  },
 ];
 
-const Features = () => (
-	<section className="py-12 md:py-16 mb-8 md:mb-12 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-		<div className="max-w-7xl mx-auto px-4 md:px-8">
-			<h2 className="text-3xl md:text-4xl font-extrabold text-black mb-12 text-center">
-				Todo en uno
-      </h2>
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
-				{features.map((f, i) => (
-					<div
-						key={i}
-						className="relative group border-l-4 border-[#d73032] border-t border-r border-b border-gray-200 bg-white flex flex-col items-start px-8 py-12 min-h-[240px] shadow-lg rounded-none overflow-hidden transition-all duration-300"
-					>
-						{/* Animated gradient bar on hover */}
-						<span className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-[#d73032] via-pink-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-500"></span>
-						{/* Glassmorphism accent on icon */}
-						<span className="mb-6 z-10 bg-white/60 backdrop-blur-md border border-[#d73032]/30 shadow-lg flex items-center justify-center p-4">
-							{f.icon}
-						</span>
-						<h3 className="text-xl font-semibold text-gray-900 mb-2 z-10 group-hover:text-[#d73032] transition-colors">
-							{f.title}
-						</h3>
-						<p className="text-gray-600 text-base leading-relaxed z-10">
-							{f.description}
-						</p>
-						{/* Glow effect on hover */}
-						<span className="absolute inset-0 pointer-events-none group-hover:shadow-[0_0_32px_0_rgba(215,48,50,0.15)] transition-all duration-500"></span>
-					</div>
-				))}
-			</div>
-		</div>
-	</section>
-);
+const Features = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || !contentRef.current) return;
+
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const sectionHeight = sectionRef.current.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      const sectionTop = sectionRect.top;
+      const sectionBottom = sectionRect.bottom;
+
+      if (sectionTop <= 0 && sectionBottom >= viewportHeight) {
+        const progress = Math.abs(sectionTop) / (sectionHeight - viewportHeight);
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+        setScrollProgress(clampedProgress);
+
+        const featureIndex = Math.floor(clampedProgress * features.length);
+        setActiveIndex(Math.min(featureIndex, features.length - 1));
+
+        const totalTransform = -(features.length - 1) * viewportHeight;
+        const currentTransform = totalTransform * clampedProgress;
+
+        if (contentRef.current) {
+          contentRef.current.style.transform = `translateY(${currentTransform}px)`;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div 
+      ref={sectionRef}
+      className="relative bg-gray-50"
+      style={{ height: `${features.length * 100}vh` }}
+    >
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <div className="flex h-full">
+          {/* Left sticky panel */}
+          <div className="w-1/2 h-full relative">
+            <div className="absolute inset-0 overflow-hidden">
+              {features.map((feature, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    activeIndex === idx ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <img
+                    src={feature.bgImage}
+                    alt={feature.title}
+                    className="w-full h-full object-cover filter grayscale brightness-75"
+                  />
+                  {/* Black tint overlay */}
+                  <div className="absolute inset-0 bg-black/40" />
+                </div>
+              ))}
+
+              {/* Content overlay */}
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="text-center px-8 max-w-lg">
+                  <div className="mb-6">
+                    <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium">
+                      {String(activeIndex + 1).padStart(2, '0')} / {String(features.length).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    {features[activeIndex].title}
+                  </h2>
+
+                  <p className="text-lg text-white/90 leading-relaxed">
+                    {features[activeIndex].description}
+                  </p>
+
+                  <div className="mt-8 flex justify-center gap-2">
+                    {features.map((_, idx) => (
+                      <div
+                        key={idx}
+                        className={`h-1 rounded-full transition-all duration-300 ${
+                          idx === activeIndex ? 'w-8 bg-white' : 'w-2 bg-white/40'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right scrolling content */}
+          <div className="w-1/2 h-full relative overflow-hidden">
+            <div ref={contentRef} className="will-change-transform">
+              {features.map((feature, idx) => (
+                <div
+                  key={idx}
+                  className="h-screen flex items-center justify-center p-8"
+                >
+                  <div className="max-w-lg space-y-8">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 flex items-center justify-center">
+                          <span className="text-red-600 font-bold text-lg">
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                        </div>
+                        <div className="h-px bg-gray-300 flex-1" />
+                      </div>
+
+                      <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                        {feature.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-xl text-gray-600 leading-relaxed">
+                      {feature.description}
+                    </p>
+
+                    <div className="pt-6">
+                      <ButtonWhite href="/contact" className="px-6 py-3">
+                        Descubrir más
+                        <svg className="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </ButtonWhite>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Features;
