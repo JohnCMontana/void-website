@@ -4,7 +4,7 @@ import { HiOutlineTranslate } from "react-icons/hi";
 interface NavbarLinksProps { isLight?: boolean }
 
 const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => (
-  <ul className={`hidden md:flex items-center space-x-6 md:space-x-10 font-light ${isLight ? 'text-white' : 'text-black'}`}>
+  <ul className={`hidden md:flex items-center space-x-6 md:space-x-10 font-light ${isLight ? 'text-black' : 'text-white'}`}>
     <li className="hover:underline"><Link href="/productos">Productos</Link></li>
     <li className="hover:underline"><Link href="/soluciones">Soluciones</Link></li>
     <li className="hover:underline"><Link href="/recursos">Recursos</Link></li>

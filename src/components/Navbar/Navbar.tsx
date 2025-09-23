@@ -20,37 +20,33 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 text-sm ${
-        isAtTop
-          ? "bg-transparent text-white"
-          : "bg-transparent text-white"
+        isAtTop ? "bg-transparent text-white" : "bg-white/70 text-black backdrop-blur-md border border-gray-300"
       }`}
     >
       <div className="max-w-7xl mx-auto p-2">
         {/* Capsule wrapper */}
         <div
-          className={`flex items-center justify-between transition-all duration-300 rounded-full ${
-            !isAtTop
-              ? "bg-black/40 backdrop-blur-md backdrop-saturate-150 px-8 py-4"
-              : ""
+          className={`flex items-center justify-between transition-all duration-300 rounded-full px-4 md:px-8 py-2 md:py-4 ${
+            !isAtTop ? "bg-white/70 text-black border border-gray-300 backdrop-blur-md" : ""
           }`}
         >
           {/* Logo - Left */}
-          <NavbarLogo isLight={true} />
+          <NavbarLogo isLight={isAtTop} />
 
           {/* Links - Center */}
           <div className="hidden md:block">
-            <NavbarLinks isLight={true} />
+            <NavbarLinks isLight={isAtTop} />
           </div>
 
           {/* Actions - Right */}
           <div className="hidden md:block">
-            <NavbarActions isLight={true} />
+            <NavbarActions isLight={isAtTop} />
           </div>
 
           {/* Mobile Hamburger */}
           <button
             className={`md:hidden p-1.5 rounded transition ${
-              isAtTop ? "hover:bg-white/10" : "hover:bg-white/20"
+              isAtTop ? "hover:bg-white/10" : "hover:bg-black/10"
             }`}
             onClick={() => setIsOpen(!isOpen)}
           >

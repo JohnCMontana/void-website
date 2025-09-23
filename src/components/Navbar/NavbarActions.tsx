@@ -5,7 +5,7 @@ interface NavbarActionsProps {
 const NavbarActions: React.FC<NavbarActionsProps> = () => (
   <a
     href="/contacto"
-    className="font-medium text-white h-8 hover:underline"
+    className="font-medium text-black h-8 hover:underline"
   >
     Comenzar
   </a>
