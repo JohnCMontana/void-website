@@ -106,10 +106,6 @@ const Features = () => {
                     {features[activeIndex].title}
                   </h2>
 
-                  <p className="text-lg text-white/90 leading-relaxed">
-                    {features[activeIndex].description}
-                  </p>
-
                   <div className="mt-8 flex justify-center gap-2">
                     {features.map((_, idx) => (
                       <div

@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-colors duration-300 text-sm ${
+      className={`fixed top-0 py-1 w-full z-50 transition-colors duration-300 text-sm ${
         isAtTop
           ? "bg-transparent border-transparent text-white"
           : "bg-white/80 backdrop-blur-sm backdrop-saturate-150 border-b border-black/15 text-black"
@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {/* Actions (right side) */}
         <div className="hidden md:flex items-center gap-4">
-          <NavbarActions isLight={isAtTop} />
+          <NavbarActions isAtTop={isAtTop} />
         </div>
 
         {/* Mobile Hamburger */}

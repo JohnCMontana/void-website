@@ -11,7 +11,7 @@ const sampleCerts = [
 ];
 
 export default function CertificationsSection({
-  title = 'Confianza en Pantalla',
+  title = 'Tu confianza, nuestra garantía',
   subtitle = 'Todos nuestros logros, visibles y comprobables.',
   certs = sampleCerts,
 }) {
