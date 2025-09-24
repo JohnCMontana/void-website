@@ -6,7 +6,7 @@ import clients from "@/data/clients";
 import integrators from "@/data/integrators";
 import AboutUs from "@/components/Home/AboutUs/AboutUs";
 import HomeFAQ from "@/components/Home/HomeFAQ/HomeFAQ";
-import Latest from "@/components/Common/Latest";
+import Latest from "@/components/Home/Latest/Latest";
 import Badges from "@/components/Home/AboutUs/Badges";
 
 export default function Home() {

@@ -19,7 +19,7 @@ const products = [
 ];
 
 const Products = () => (
-  <section className="py-16 md:py-24 bg-white">
+  <section className="py-16 md:py-4 pb-40 bg-white">
     <div className="max-w-7xl mx-auto px-4 md:px-8">
       {/* Main product image and headline */}
       <div className="flex flex-col md:flex-row items-center gap-2 mb-12">

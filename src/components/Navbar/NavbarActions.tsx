@@ -1,14 +1,12 @@
-interface NavbarActionsProps { 
-  isLight?: boolean 
+import ButtonWhite from "../Buttons/ButtonWhite";
+interface NavbarActionsProps {
+  isLight?: boolean;
 }
 
-const NavbarActions: React.FC<NavbarActionsProps> = () => (
-  <a
-    href="/contacto"
-    className="font-medium text-black h-8 hover:underline"
-  >
-    Comenzar
-  </a>
+const NavbarActions: React.FC<NavbarActionsProps> = ({ isLight = false }) => (
+
+  <ButtonWhite href="/contacto">Comenzar</ButtonWhite>
+
 );
 
 export default NavbarActions;

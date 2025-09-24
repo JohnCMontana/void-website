@@ -11,51 +11,46 @@ const Navbar = () => {
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
-    const onScroll = () => setIsAtTop(window.scrollY < 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setIsAtTop(window.scrollY < 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 text-sm ${
-        isAtTop ? "bg-transparent text-white" : "bg-white/70 text-black backdrop-blur-md border border-gray-300"
+      className={`fixed top-0 w-full z-50 transition-colors duration-300 text-sm ${
+        isAtTop
+          ? "bg-transparent border-transparent text-white"
+          : "bg-white/80 backdrop-blur-sm backdrop-saturate-150 border-b border-black/15 text-black"
       }`}
     >
-      <div className="max-w-7xl mx-auto p-2">
-        {/* Capsule wrapper */}
-        <div
-          className={`flex items-center justify-between transition-all duration-300 rounded-full px-4 md:px-8 py-2 md:py-4 ${
-            !isAtTop ? "bg-white/70 text-black border border-gray-300 backdrop-blur-md" : ""
-          }`}
-        >
-          {/* Logo - Left */}
-          <NavbarLogo isLight={isAtTop} />
+      <div className="flex items-center justify-between max-w-7xl mx-auto p-4 md:p-2">
+        {/* Logo */}
+        <NavbarLogo isLight={isAtTop} />
 
-          {/* Links - Center */}
-          <div className="hidden md:block">
-            <NavbarLinks isLight={isAtTop} />
-          </div>
-
-          {/* Actions - Right */}
-          <div className="hidden md:block">
-            <NavbarActions isLight={isAtTop} />
-          </div>
-
-          {/* Mobile Hamburger */}
-          <button
-            className={`md:hidden p-1.5 rounded transition ${
-              isAtTop ? "hover:bg-white/10" : "hover:bg-black/10"
-            }`}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
-          </button>
+        {/* Desktop Links */}
+        <div className="hidden md:flex flex-1 justify-center items-center gap-6">
+          <NavbarLinks isLight={isAtTop} />
         </div>
+
+        {/* Actions (right side) */}
+        <div className="hidden md:flex items-center gap-4">
+          <NavbarActions isLight={isAtTop} />
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className={`md:hidden p-2 rounded transition-colors ${
+            isAtTop ? "hover:bg-white/10" : "hover:bg-black/10"
+          }`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
+        </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <NavbarMobileMenu isOpen={isOpen} />
     </nav>
   );

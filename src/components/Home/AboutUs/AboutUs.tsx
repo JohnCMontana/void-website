@@ -9,7 +9,7 @@ const AboutUs = () => {
     <>
       <section className="relative overflow-hidden text-black mt-30">
         {/* Background overlay */}
-        <div className="absolute inset-0 bg-gray-200 z-0"></div>
+        <div className="absolute inset-0 bg-gray-100 z-0"></div>
 
         {/* Content */}
         <div className="relative max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center z-10">

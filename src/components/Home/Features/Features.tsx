@@ -68,7 +68,7 @@ const Features = () => {
   return (
     <div 
       ref={sectionRef}
-      className="relative bg-gray-50"
+      className="relative bg-gray-50 my-30"
       style={{ height: `${features.length * 100}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
