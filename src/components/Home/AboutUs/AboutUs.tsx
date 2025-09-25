@@ -19,15 +19,12 @@ const AboutUs = () => {
               Más que Software, Soluciones
             </h2>
             <p className="text-lg leading-relaxed">
-              Void Sistemas, empresa española proveedora de soluciones
-              tecnológicas, con una experiencia de más de 30 años en el diseño,
-              desarrollo, implantación y soporte de software de grabación de
-              comunicaciones.
+              Void Sistemas, empresa española con más de 30 años de experiencia,
+              provee soluciones tecnológicas y soporte de software de grabación de comunicaciones.
             </p>
             <p className="text-lg leading-relaxed">
-              Nuestro producto principal AURALL, es un sistema de última
-              generación diseñado para capturar y almacenar de manera segura las
-              interacciones de voz y datos en entornos empresariales exigentes.
+              Su producto principal, AURALL, es un sistema de última generación que captura
+              y almacena de manera segura las interacciones de voz y datos en entornos empresariales exigentes.
             </p>
             <div className="flex space-x-4">
               <ButtonWhite href="/about-us">Conoce la empresa</ButtonWhite>

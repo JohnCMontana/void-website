@@ -53,13 +53,21 @@ export default function CertificationsSection({
             ))}
 
             {/* Highlight card */}
-            <div className="col-span-2 sm:col-span-3 md:col-span-2 flex items-center justify-center p-6 rounded-xl bg-red-400 text-white shadow-lg">
-              <div className="text-center">
-                <h4 className="text-lg text-left font-semibold">Nuestros certificados respaldan cada proyecto y cada paso que damos.</h4>
+            <div
+              className="col-span-2 sm:col-span-3 md:col-span-2 flex items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm text-white shadow-lg bg-cover bg-center relative"
+              style={{ backgroundImage: "url('/images/certifications/voidsistemas-certificados.png')" }}
+            >
+              <div className="absolute inset-0 bg-black/60 rounded-xl"></div>
+
+              <div className="relative text-center">
+                <h4 className="text-md text-left font-normal">
+                  Nuestros certificados respaldan cada proyecto y cada paso que damos.
+                </h4>
               </div>
             </div>
-          </div>
 
+          </div>
+          
           <p className="mt-4 text-xs text-gray-500">
             Enlaces de verificación disponibles. Actualizamos los sellos cada vez que recibimos una renovación.
           </p>

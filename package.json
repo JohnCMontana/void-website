@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
+    "classnames": "^2.5.1",
     "framer-motion": "^12.23.13",
     "next": "15.5.2",
     "ogl": "^1.0.11",

@@ -40,7 +40,7 @@ const Hero = () => (
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         <FiTrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white/60" />
         <span className="flex-1">
-          Más de 25 años respaldan nuestra innovación y compromiso constante
+          Más de 30 años respaldan nuestra innovación y compromiso constante
         </span>
         <Link
           href="/empresa"
