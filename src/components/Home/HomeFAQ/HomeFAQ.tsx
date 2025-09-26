@@ -29,7 +29,7 @@ export default function FAQ() {
 		<section className="flex items-center justify-center py-20 px-4">
 			<div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
 				<h2 className="flex items-center gap-2 text-3xl font-extrabold mb-8 text-gray-900">
-					<span className="text-[#d73032]">✦</span> Preguntas Frecuentes
+					Preguntas Frecuentes
 				</h2>
 
 				<div className="space-y-4">

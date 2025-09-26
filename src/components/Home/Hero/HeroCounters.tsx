@@ -30,15 +30,15 @@ function Counter({ end, label, suffix = "+", duration = 2000 }: CounterProps) {
   }, [end, duration]);
 
   return (
-    <div className="text-center p-6 bg-black/30 border border-white/10 backdrop-blur-sm rounded-lg">
-      <p className="text-2xl font-bold text-white">{count}{suffix}</p>
+    <div className="text-center p-3 sm:p-4 md:p-6 bg-black/30 border border-white/10 backdrop-blur-sm rounded-lg">
+      <p className="text-xl sm:text-2xl font-bold text-white">{count}{suffix}</p>
       <p className="text-xs font-light text-white/80">{label}</p>
     </div>
   );
 }
 
 const HeroCounters = () => (
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full max-w-3xl mx-auto">
     <CursorHighlight>
       <Counter end={30} label="Años de experiencia" duration={1500} />
     </CursorHighlight>
