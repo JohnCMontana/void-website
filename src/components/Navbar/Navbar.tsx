@@ -22,7 +22,7 @@ const Navbar = () => {
       className={`fixed top-0 py-1 w-full z-50 transition-colors duration-300 text-sm ${
         isAtTop
           ? "bg-transparent border-transparent text-white"
-          : "bg-white/80 backdrop-blur-sm backdrop-saturate-150 border-b border-black/15 text-black"
+          : "bg-white border-b border-black/15 text-black"
       }`}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto p-4 md:p-2">

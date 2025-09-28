@@ -9,7 +9,7 @@ const HeroContent = () => (
       GRABACIÓN DE INTERRACCIONES
     </p>
 
-    <h1 className="text-5xl mb-10 leading-tight">
+    <h1 className="sm:text-3xl md:text-5xl mb-10 sm:px-30 md:px-50 leading-tight">
       Tus comunicaciones críticas, seguras y bajo control con{" "}
       <span className="relative inline-block align-baseline">
         <span

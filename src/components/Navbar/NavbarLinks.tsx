@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiOutlineTranslate } from "react-icons/hi";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import DesktopDropdown from "@/components/Navbar/DesktopDropdown";
 import { dropdownData } from "./DropdownData";
 
@@ -10,13 +10,28 @@ interface NavbarLinksProps {
 
 const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
 
   const handleToggleDropdown = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative w-full">
+    <div className="relative w-full" ref={navRef}>
       <ul className={`flex items-center w-full justify-center space-x-6 md:space-x-10 font-light ${isLight ? 'text-white' : 'text-black'}`}>
         <DesktopDropdown
           title="Productos"
@@ -24,7 +39,8 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           isActive={activeDropdown === 'productos'}
           onToggle={() => handleToggleDropdown('productos')}
           variant="detailed"
-          imageSrc="/images/products/aurall.jpg"
+          imageSrc="/images/products/aurall-server-recording.png"
+          isLight={isLight}
         />
 
         <DesktopDropdown
@@ -32,7 +48,9 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           items={dropdownData.soluciones}
           isActive={activeDropdown === 'soluciones'}
           onToggle={() => handleToggleDropdown('soluciones')}
-          imageSrc="/logos/aurall-cloud.png"
+          variant="detailed"
+          imageSrc="/images/products/aurall-solutions.png"
+          isLight={isLight}
         />
 
         <DesktopDropdown
@@ -40,7 +58,9 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           items={dropdownData.recursos}
           isActive={activeDropdown === 'recursos'}
           onToggle={() => handleToggleDropdown('recursos')}
-          imageSrc="/logos/aurall-logo-solo-black.png"
+          variant="detailed"
+          imageSrc="/images/certifications/voidsistemas-certificados.png"
+          isLight={isLight}
         />
 
         <DesktopDropdown
@@ -48,7 +68,9 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           items={dropdownData.empresa}
           isActive={activeDropdown === 'empresa'}
           onToggle={() => handleToggleDropdown('empresa')}
-          imageSrc="/images/about-us/team.jpg"
+          variant="detailed"
+          imageSrc="/images/about-us/about-us-void-sistemas.png"
+          isLight={isLight}
         />
 
         <li>

@@ -4,7 +4,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling with inertia effect */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Adjust for fixed navbar if needed */
+}
+
+/* Enhanced smooth scrolling for webkit browsers */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar with smooth behavior */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Inertia scrolling for touch devices */
 body {
   font-family: 'Urbanist', Arial, Helvetica, sans-serif;
   font-size: 16px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
