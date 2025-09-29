@@ -11,7 +11,7 @@ export interface DropdownData {
 
 export const dropdownData: DropdownData = {
   productos: [
-    { name: "Aurall", href: "/productos/aurall", description: "Plataforma principal", imageSrc: "/images/products/aurall-server-recording.png" },
+    { name: "Aurall Server", href: "/productos/aurall-server", description: "Plataforma principal", imageSrc: "/images/products/aurall-server-recording.png" },
     { name: "Aurall Quantum", href: "/productos/aurall-quantum", description: "Función de IA", imageSrc: "/images/products/aurall-solutions.png" },
     { name: "Aurall Quality", href: "/productos/aurall-quality", description: "Producto independiente", imageSrc: "/images/certifications/voidsistemas-certificados.png" },
   ],
