@@ -39,7 +39,6 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           isActive={activeDropdown === 'productos'}
           onToggle={() => handleToggleDropdown('productos')}
           variant="detailed"
-          imageSrc="/images/products/aurall-server-recording.png"
           isLight={isLight}
         />
 
@@ -49,7 +48,6 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           isActive={activeDropdown === 'soluciones'}
           onToggle={() => handleToggleDropdown('soluciones')}
           variant="detailed"
-          imageSrc="/images/products/aurall-solutions.png"
           isLight={isLight}
         />
 
@@ -59,7 +57,6 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           isActive={activeDropdown === 'recursos'}
           onToggle={() => handleToggleDropdown('recursos')}
           variant="detailed"
-          imageSrc="/images/certifications/voidsistemas-certificados.png"
           isLight={isLight}
         />
 
@@ -69,7 +66,6 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({ isLight = false }) => {
           isActive={activeDropdown === 'empresa'}
           onToggle={() => handleToggleDropdown('empresa')}
           variant="detailed"
-          imageSrc="/images/about-us/about-us-void-sistemas.png"
           isLight={isLight}
         />
 

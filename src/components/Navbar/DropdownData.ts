@@ -11,9 +11,9 @@ export interface DropdownData {
 
 export const dropdownData: DropdownData = {
   productos: [
-    { name: "Aurall Server", href: "/productos/aurall-server", description: "Plataforma principal", imageSrc: "/images/products/aurall-server-recording.png" },
-    { name: "Aurall Quantum", href: "/productos/aurall-quantum", description: "Función de IA", imageSrc: "/images/products/aurall-solutions.png" },
-    { name: "Aurall Quality", href: "/productos/aurall-quality", description: "Producto independiente", imageSrc: "/images/certifications/voidsistemas-certificados.png" },
+    { name: "Aurall Server", href: "/productos/aurall-server", description: "Producto Aurall", imageSrc: "/images/products/aurall-server-recording.png" },
+    { name: "Aurall Quantum", href: "/productos/aurall-quantum", description: "Producto Aurall", imageSrc: "/images/products/aurall-quantum-ai.png" },
+    { name: "Aurall Quality", href: "/productos/aurall-quality", description: "Producto Aurall", imageSrc: "/images/products/aurall-quality-dashboard.png" },
   ],
   soluciones: [
     { name: "Manufactura", href: "/soluciones/manufactura", description: "Optimización de procesos industriales", imageSrc: "/images/products/aurall-server-recording.png" },

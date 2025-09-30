@@ -3,30 +3,10 @@ import ButtonGradient from "@/components/Buttons/ButtonGradient";
 import ButtonVideo from "@/components/Buttons/ButtonVideo";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { slides } from "@/data/aurall-server-slides";
 
 const AurallServerHero = () => {
-  const [animateMetrics, setAnimateMetrics] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  
-  // Array de imágenes para el carrusel
-  const slides = [
-    "/images/aurall-server/screens/Screen1.png",
-    "/images/aurall-server/screens/Screen2.png",
-    "/images/aurall-server/screens/Screen3.png",
-    "/images/aurall-server/screens/Screen4.png",
-    "/images/aurall-server/screens/Screen5.png",
-    "/images/aurall-server/screens/Screen6.png",
-    "/images/aurall-server/screens/Screen7.png",
-    "/images/aurall-server/screens/Screen8.png"
-  ];
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimateMetrics(true);
-    }, 500);
-    
-    return () => clearTimeout(timer);
-  }, []);
   
   // Efecto para cambiar de diapositiva cada 4 segundos
   useEffect(() => {
@@ -39,16 +19,20 @@ const AurallServerHero = () => {
 
   return (
     <section id="hero" className="relative w-full overflow-hidden pt-10 pb-2">
+
       {/* Background with animated gradient */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-black/90 via-black to-black/90 animate-gradient"
-           style={{ backgroundSize: "200% 200%" }}>
-   
-        
-        {/* Animated circles */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-red-500/10 blur-3xl animate-pulse-custom"></div>
-        <div className="absolute bottom-1/4 righ5-1/3 w-80 h-80 rounded-full bg-red-500/10 blur-3xl animate-pulse-custom" 
-            style={{ animationDelay: "2s" }}>
-        </div>
+      <video
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+        src="/videos/aurall-server-hero/aurall-server-hero-bg.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      />
+
+      {/* Black overlay to reduce saturation */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
 
         {/* Background lines image */}
         <div className="absolute bottom-0 right-0 z-0">
@@ -62,7 +46,6 @@ const AurallServerHero = () => {
             priority
           />
         </div>
-      </div>
       
       {/* Contenido principal */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-30">
@@ -109,7 +92,7 @@ const AurallServerHero = () => {
                   />
                   
                   {/* Gradiente negro sobre la imagen */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
                   
                   {/* Efecto de brillo */}
                   <div className="absolute inset-0 shine-effect"></div>
@@ -179,23 +162,24 @@ const AurallServerHero = () => {
       <style jsx>{`
         @keyframes shine {
           0% {
-            background-position: -100% 0;
+            background-position: -200% 0;
           }
           100% {
             background-position: 200% 0;
           }
         }
-        
+
         .shine-effect {
           background: linear-gradient(
             to right,
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.2) 25%,
-            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.08) 30%,
+            rgba(255, 255, 255, 0.12) 50%,
+            rgba(255, 255, 255, 0.08) 70%,
             rgba(255, 255, 255, 0) 100%
           );
-          background-size: 200% 100%;
-          animation: shine 4s infinite linear;
+          background-size: 300% 100%;
+          animation: shine 8s infinite ease-in-out;
           pointer-events: none;
         }
       `}</style>

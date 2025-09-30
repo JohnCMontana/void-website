@@ -6,13 +6,21 @@ import Image from "next/image";
 import { dropdownData } from "./DropdownData";
 import { motion, AnimatePresence } from "framer-motion";
 import ButtonWhite from "../Buttons/ButtonWhite";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
-  const navbarHeight = "60px";
+  const navbarHeight = "60px"; // Consistent height
+  const pathname = usePathname();
+
+  // Close menus when pathname changes
+  useEffect(() => {
+    setIsOpen(false);
+    setActiveDropdown(null);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => setIsAtTop(window.scrollY < 10);
@@ -38,20 +46,25 @@ const Navbar = () => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    setActiveDropdown(null);
+  };
+
   return (
     <div ref={navRef}>
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 py-2 ${
           isAtTop
             ? "bg-transparent text-white"
-            : "bg-white/80 backdrop-blur-sm shadow-sm text-black"
+            : "bg-white/90 backdrop-blur-md shadow-sm text-black"
         }`}
         style={{ height: navbarHeight }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0">
+            <Link href="/" className="flex-shrink-0" onClick={handleLinkClick}>
               <div className="h-8 w-auto cursor-pointer relative">
                 <img
                   src={isAtTop ? "/logos/aurall-logo-solo-white.png" : "/logos/aurall-logo-solo.png"}
@@ -68,13 +81,13 @@ const Navbar = () => {
                   <button
                     onClick={() => handleToggleDropdown(key)}
                     className={`group flex items-center text-sm font-medium transition-all duration-200 ${
-                      activeDropdown === key ? "text-blue-500" : ""
+                      activeDropdown === key ? "text-[#d73032]" : ""
                     }`}
                   >
                     <span className="relative">
                       {key.charAt(0).toUpperCase() + key.slice(1)}
                       <span 
-                        className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full ${
+                        className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d73032] transition-all duration-300 group-hover:w-full ${
                           activeDropdown === key ? "w-full" : ""
                         }`}
                       ></span>
@@ -127,7 +140,7 @@ const Navbar = () => {
               className={`fixed left-0 right-0 shadow-lg rounded-b-lg overflow-hidden z-50 ${
                 isAtTop
                   ? "bg-black/80 backdrop-blur-md border-t border-gray-800"
-                  : "bg-white/90 backdrop-blur-sm shadow-sm"
+                  : "bg-white/90 backdrop-blur-md shadow-sm"
               }`}
               style={{
                 top: navbarHeight,
@@ -139,10 +152,11 @@ const Navbar = () => {
                     <Link
                       key={item.name}
                       href={item.href}
+                      onClick={handleLinkClick}
                       className={`group flex flex-col rounded-lg p-4 transition-colors ${
                         isAtTop
                           ? "hover:bg-gray-800/50 text-white"
-                          : "hover:bg-white/90 backdrop-blur-sm text-gray-900"
+                          : "hover:bg-gray-50 text-gray-900"
                       }`}
                     >
                       {item.imageSrc && (
@@ -213,6 +227,7 @@ const Navbar = () => {
                             <Link
                               key={item.name}
                               href={item.href}
+                              onClick={handleLinkClick}
                               className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md"
                             >
                               {item.name}
