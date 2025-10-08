@@ -12,7 +12,7 @@ const AboutUs = () => {
         <div className="absolute inset-0 bg-gray-100 z-0"></div>
 
         {/* Content */}
-        <div className="relative max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center z-10">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 grid md:grid-cols-2 gap-12 items-center z-10">
           {/* Left side: text */}
           <div className="space-y-6">
             <h2 className="text-5xl font-extrabold tracking-tight">
@@ -23,22 +23,23 @@ const AboutUs = () => {
               provee soluciones tecnológicas y soporte de software de grabación de comunicaciones.
             </p>
             <p className="text-lg leading-relaxed">
-              Su producto principal, AURALL, es un sistema de última generación que captura
-              y almacena de manera segura las interacciones de voz y datos en entornos empresariales exigentes.
+              Nuestro compromiso es ofrecer productos que no solo cumplan con los estándares más altos de calidad,
+              sino que también se adapten a las necesidades específicas de cada cliente.
             </p>
-            <div className="flex space-x-4">
-              <ButtonWhite href="/about-us">Conoce la empresa</ButtonWhite>
-              <ButtonVideo href="#video" label="Ver video" />
+            <div className="flex gap-4">
+              <ButtonWhite href="/empresa">Conoce más</ButtonWhite>
+              <ButtonVideo href="/empresa" label="Ver video" />
             </div>
           </div>
 
           {/* Right side: image */}
-          <div className="flex justify-center">
-            <img
-              src="/images/about-us/about-us-void-sistemas-team.png"
-              alt="Sobre Nosotros"
-              className="max-h-[800px] object-cover rounded-2xl transition-transform duration-500 hover:scale-105"
-            />
+          <div className="relative">
+            <div className="overflow-hidden rounded-xl">
+              <img
+                className="w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-105"
+                src="/images/about-us/about-us-void-sistemas-team.png"
+              />
+            </div>
           </div>
         </div>
       </section>

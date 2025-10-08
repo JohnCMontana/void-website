@@ -20,7 +20,7 @@ const products = [
 
 const Products = () => (
   <section className="py-16 md:py-4 pb-40 bg-white">
-    <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Main product image and headline */}
       <div className="flex flex-col md:flex-row items-center gap-2 mb-12">
         <div className="flex-1 flex justify-center">
@@ -42,7 +42,7 @@ const Products = () => (
         </div>
       </div>
 
-      {/* Minimalistic product columns */}
+      {/* Product grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-300 text-center">
         {products.map((product, idx) => (
           <div key={idx} className="px-4 py-8">

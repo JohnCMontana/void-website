@@ -76,8 +76,8 @@ const LatestNews = () => {
   );
 
   return (
-    <section className="relative min-h-screen bg-white py-20 px-4">
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section className="relative min-h-screen bg-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
@@ -89,15 +89,17 @@ const LatestNews = () => {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {newsData.map((news) => (
             <NewsCard key={news.id} news={news} />
           ))}
         </div>
 
-        {/* View All Link */}
-        <div className="text-center mt-16">
-          <ButtonWhite href="/news">Ver todas las noticias</ButtonWhite>
+        {/* CTA */}
+        <div className="text-center">
+          <ButtonWhite href="/noticias">
+            Ver todas las noticias
+          </ButtonWhite>
         </div>
       </div>
     </section>

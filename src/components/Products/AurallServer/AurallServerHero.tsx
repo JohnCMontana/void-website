@@ -37,7 +37,7 @@ const AurallServerHero = () => {
         {/* Background lines image */}
         <div className="absolute bottom-0 right-0 z-0">
           <Image 
-            src="/images/Common/aurall-bg-lines.png"
+            src="/images/common/aurall-bg-lines.png"
             alt="Background lines"
             width={1000}
             height={1000}
