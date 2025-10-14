@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import ButtonWhite from "../../Buttons/ButtonWhite";
+import { InView } from "../../Effects/InView";
 
 const faqs = [
 	{
@@ -27,7 +28,7 @@ export default function FAQ() {
 
 	return (
 		<section className="flex items-center justify-center py-20 px-4">
-			<div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
+			<InView className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8" variant="fadeUp" delay={0.05}>
 				<h2 className="flex items-center gap-2 text-3xl font-extrabold mb-8 text-gray-900">
 					Preguntas Frecuentes
 				</h2>
@@ -65,12 +66,12 @@ export default function FAQ() {
 				</div>
 
 				{/* Button to FAQ page */}
-				<div className="flex justify-center mt-10">
+				<InView className="flex justify-center mt-10" variant="fadeUp" delay={0.1}>
 					<ButtonWhite href="/faq">
 						Ver todas las preguntas frecuentes
 					</ButtonWhite>
-				</div>
-			</div>
+				</InView>
+			</InView>
 		</section>
 	);
 }

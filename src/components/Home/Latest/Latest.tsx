@@ -1,5 +1,6 @@
 import ButtonWhite from '@/components/Buttons/ButtonWhite';
 import React from 'react';
+import { InView } from '../../Effects/InView';
 
 const LatestNews = () => {
   const newsData = [
@@ -80,27 +81,33 @@ const LatestNews = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
-            Lo Último
-          </h2>
-          <p className="text-black/80 text-md md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Mantente al día con las últimas noticias e innovaciones de nuestra empresa
-          </p>
+          <InView variant="fadeUp" delay={0.05}>
+            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+              Lo Último
+            </h2>
+          </InView>
+          <InView variant="fadeUp" delay={0.12}>
+            <p className="text-black/80 text-md md:text-xl max-w-2xl mx-auto leading-relaxed">
+              Mantente al día con las últimas noticias e innovaciones de nuestra empresa
+            </p>
+          </InView>
         </div>
 
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {newsData.map((news) => (
-            <NewsCard key={news.id} news={news} />
+          {newsData.map((news, idx) => (
+            <InView key={news.id} variant="fadeUp" delay={0.08 * idx}>
+              <NewsCard news={news} />
+            </InView>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <InView className="text-center" variant="fadeUp" delay={0.12}>
           <ButtonWhite href="/noticias">
             Ver todas las noticias
           </ButtonWhite>
-        </div>
+        </InView>
       </div>
     </section>
   );

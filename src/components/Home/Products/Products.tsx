@@ -1,4 +1,5 @@
 import ButtonWhite from "../../Buttons/ButtonWhite";
+import { InView } from "../../Effects/InView";
 
 const products = [
   {
@@ -23,29 +24,35 @@ const Products = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Main product image and headline */}
       <div className="flex flex-col md:flex-row items-center gap-2 mb-12">
-        <div className="flex-1 flex justify-center">
+        <InView className="flex-1 flex justify-center" variant="zoomIn" delay={0.05}>
           <img
             src="/images/products/aurall-solutions.png"
             alt="Aurall Solutions"
             className="w-100 p-4 max-w-xl object-cover"
           />
-        </div>
+        </InView>
         <div className="flex-1">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-4">
-            Innovaciones para tu Empresa
-          </h2>
-          <p className="text-lg text-gray-700 mb-4">
-            Soluciones diseñadas para maximizar la eficiencia y seguridad en tus
-            comunicaciones críticas.
-          </p>
-          <ButtonWhite href="/contacto">Solicitar demo</ButtonWhite>
+          <InView variant="fadeUp" delay={0.1}>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-4">
+              Innovaciones para tu Empresa
+            </h2>
+          </InView>
+          <InView variant="fadeUp" delay={0.18}>
+            <p className="text-lg text-gray-700 mb-4">
+              Soluciones diseñadas para maximizar la eficiencia y seguridad en tus
+              comunicaciones críticas.
+            </p>
+          </InView>
+          <InView variant="fadeUp" delay={0.26}>
+            <ButtonWhite href="/contacto">Solicitar demo</ButtonWhite>
+          </InView>
         </div>
       </div>
 
       {/* Product grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-300 text-center">
         {products.map((product, idx) => (
-          <div key={idx} className="px-4 py-8">
+          <InView key={idx} className="px-4 py-8" variant="fadeUp" delay={0.1 * idx}>
             <h3 className="text-xl font-bold text-black mb-3">{product.title}</h3>
             <p className="text-gray-700 mb-3">{product.description}</p>
             <a
@@ -54,7 +61,7 @@ const Products = () => (
             >
               Ver más →
             </a>
-          </div>
+          </InView>
         ))}
       </div>
     </div>

@@ -18,7 +18,7 @@ const AurallServerHero = () => {
   }, [slides.length]);
 
   return (
-    <section id="hero" className="relative w-full overflow-hidden pt-10 pb-2">
+    <section id="hero" className="relative h-screen w-full overflow-hidden pt-10 pb-2">
 
       {/* Background with animated gradient */}
       <video

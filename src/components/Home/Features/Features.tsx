@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import ButtonWhite from "../../Buttons/ButtonWhite";
+import { InView } from "../../Effects/InView";
 
 const features = [
   {
@@ -143,23 +144,29 @@ const Features = () => {
                           <div className="h-px bg-gray-300 flex-1" />
                         </div>
 
-                        <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-                          {feature.title}
-                        </h3>
+                          <InView variant="fadeUp" delay={0.05}>
+                            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                              {feature.title}
+                            </h3>
+                          </InView>
                       </div>
 
-                      <p className="text-xl text-gray-600 leading-relaxed">
-                        {feature.description}
-                      </p>
+                      <InView variant="fadeUp" delay={0.12}>
+                        <p className="text-xl text-gray-600 leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </InView>
 
-                      <div className="pt-6">
-                        <ButtonWhite href="/contact" className="px-6 py-3">
-                          Descubrir más
-                          <svg className="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </ButtonWhite>
-                      </div>
+                      <InView variant="fadeUp" delay={0.2}>
+                        <div className="pt-6">
+                          <ButtonWhite href="/contact" className="px-6 py-3">
+                            Descubrir más
+                            <svg className="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </ButtonWhite>
+                        </div>
+                      </InView>
                     </div>
                   </div>
                 ))}

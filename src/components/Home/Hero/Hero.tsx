@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Hero = () => (
-  <section id="hero" className="relative w-full overflow-hidden pt-10 pb-2">
+  <section id="hero" className="relative h-screen w-full overflow-hidden pt-10 pb-2">
     {/* Video de fondo */}
     <video
       className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
